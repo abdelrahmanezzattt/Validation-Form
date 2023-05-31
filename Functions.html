@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link type="image/x-icon" rel="icon" href="../Assets/Media/Images/Icons/favicon.ico" /> -->
+    <title>Examples on functions</title>
+    <script src="/nti/areas/FunctionsScript.js"></script>
+    <style>
+        #FileErr {
+            display: none;
+        }
+
+        input[type=file] {
+            font-size: 16px;
+            width: 244px;
+            /*background: #f4e27d;*/
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+            input[type=file]::file-selector-button {
+                color: #0004ff;
+                width: 120px;
+                font-size: 17px;
+                background: #bbd2dd;
+                border-radius: 13px;
+                border: blue solid 1px;
+                height: 30px;
+            }
+
+        .MyForm {
+            font-size: 20px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .DisplayBadge, #CountErr, #FileErr {
+            margin-left: 10px;
+            display: none;
+        }
+
+        .input2 {
+            outline: none;
+            border-radius: 10px;
+            width: 210px;
+        }
+
+        #FrmErrors {
+            font-size: 17px;
+            display: none;
+            color: red;
+            background: #f6c0c0;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="firstPara">
+        he Date according to the Universal Time Coordinated
+    </p>
+    <br />
+    <p id="SecondPara">
+        Both these methods show the same time for any region and device
+    </p>
+    <br />
+    <!--<button type="button" onclick="alert('clicked')" ondblclick="alert('double clicked')"> Click to Change </button>-->
+
+    <button type="button" onclick="GetName('students')"> Click to Change </button>
+
+    <br />
+    <br />
+
+    <form class="MyForm">
+        <label for="FirstName">First Name :</label>
+        <input id="FirstName" type="text" placeholder="Write your First Name" required autofocus autocomplete="off" />
+        <br /><br />
+        <label for="SecondName">Second Name :</label>
+        <input id="SecondName" type="text" placeholder="Write your Second Name" required autocomplete="off" /><br><br>
+        <label for="email"> You Email</label>
+        <input type="email" value="" placeholder="enter your email" onkeyup="ValidateEmail(this)">
+        <input type="phone" placeholder="enter you phone">
+        <br /><br />
+        <label for="Pass">Password</label>
+        <input id="Pass" type="password" onkeyup="CheckPassword(this)" placeholder="Write Password" required />
+        <span id="StrengthDisp" class="DisplayBadge">Example</span>
+        <br /><br />
+        <label for="CounterTxt">Count: </label>
+        <input id="CounterTxt" type="number" onkeyup="Checkcount(this)" placeholder="Enter number between 1 and 20" required />
+        <span id="CountErr">Example</span>
+        <br /><br />
+        <label for="FileUploader">Select a file: </label>
+        <!-- multiple -->
+        <input id="FileUploader" onchange="CheckFileSize(this);" type="file" accept=".pdf,.png,.jpg,.jpeg,.gif,.docx, .xlsx" />
+        <br /><br />
+        <span id="FileErr"></span>
+        <input type="submit" value="Click to send" />
+    </form>
+
+</body>
+</html>
